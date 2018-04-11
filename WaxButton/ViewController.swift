@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var Button: WaxButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +22,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func slider(_ sender: Any) {
+        Button.EndValue = CGFloat(slider.value)
+        print(CGFloat(slider.value))
+    }
+    
 }
 
