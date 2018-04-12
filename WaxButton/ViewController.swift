@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 
     @IBAction func slider(_ sender: Any) {
         Button.EndValue = CGFloat(slider.value)
-        print(CGFloat(slider.value))
+        
     }
     
 }

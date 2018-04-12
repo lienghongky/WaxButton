@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hd6-JZ-sI4" customClass="WaxButton" customModule="WaxButton" customModuleProvider="target">
-                                <rect key="frame" x="138" y="319" width="100" height="50"/>
+                                <rect key="frame" x="88" y="294" width="200" height="100"/>
                                 <color key="backgroundColor" red="0.0026559780819999999" green="0.58648008110000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="h0m-hT-3QD"/>
-                                    <constraint firstAttribute="height" constant="50" id="xsf-h6-oNh"/>
+                                    <constraint firstAttribute="width" constant="200" id="h0m-hT-3QD"/>
+                                    <constraint firstAttribute="height" constant="100" id="xsf-h6-oNh"/>
                                 </constraints>
                                 <state key="normal" title="X">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

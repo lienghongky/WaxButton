@@ -12,6 +12,7 @@ class WaxButton: UIButton {
     private var preferWidth:CGFloat!
     private var centerOrigin:CGPoint!
     private var shapeLayer = CAShapeLayer()
+    public var percentageLabel = UILabel()
     @IBInspectable public var isRemoveLineOnCompletion:Bool=false
     @IBInspectable public var lineWidth:CGFloat = 3{
         didSet{
@@ -31,6 +32,7 @@ class WaxButton: UIButton {
                 EndValue = 0
             }
             
+            percentageLabel.text = "\(Int(EndValue*100))%"
             shapeLayer.strokeEnd = EndValue
             if EndValue >= 1{
                 idetitify()
@@ -51,6 +53,9 @@ class WaxButton: UIButton {
         preferWidth = self.frame.width
         preferBackgroundColor = self.backgroundColor
         self.centerOrigin = center
+         self.addSubview(self.percentageLabel)
+      
+     
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
@@ -74,7 +79,14 @@ class WaxButton: UIButton {
            self.frame.size.width = self.frame.size.height
            self.center = self.centerOrigin
         }) { (status) in
+            if status {
+               
             let centerPoint = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+               self.percentageLabel = UILabel(frame:self.frame)
+                self.percentageLabel.center = centerPoint
+                self.percentageLabel.textColor = UIColor.white
+                self.percentageLabel.textAlignment = .center
+               
             let circularPath = UIBezierPath(arcCenter: centerPoint, radius: self.frame.height/2, startAngle: self.StartValue, endAngle:(1 * CGFloat.pi)+CGFloat.pi/2, clockwise: self.Isclockwise)
             self.shapeLayer.path = circularPath.cgPath
             self.shapeLayer.fillColor = UIColor.clear.cgColor
@@ -83,20 +95,20 @@ class WaxButton: UIButton {
             self.shapeLayer.strokeEnd = self.EndValue
             self.layer.insertSublayer(self.shapeLayer, at: 0)
             CATransaction.begin()
-            let basicAnimate = CABasicAnimation(keyPath: "strokeEnd")
-            //basicAnimate.toValue = 1
-            basicAnimate.duration = 0.1
-            basicAnimate.fillMode = kCAFillModeForwards
-            basicAnimate.isRemovedOnCompletion = false
+//            let basicAnimate = CABasicAnimation(keyPath: "strokeEnd")
+//            //basicAnimate.toValue = 1
+//            basicAnimate.duration = 0.1
+//            basicAnimate.fillMode = kCAFillModeForwards
+//            basicAnimate.isRemovedOnCompletion = false
             CATransaction.setCompletionBlock({
                 
                 
                 
             })
-            self.shapeLayer.add(basicAnimate, forKey: "animatedStroke")
+//            self.shapeLayer.add(basicAnimate, forKey: "animatedStroke")
             CATransaction.commit()
         }
-     
+    }
     }
     
     func idetitify()  {
